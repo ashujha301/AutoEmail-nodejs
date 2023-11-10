@@ -120,7 +120,7 @@ async function sendMail() {
     });
 
     // Create a custom label if it doesn't exist
-    const labelName = "Auto Email Reply"; // Customize the label name
+    const labelName = "Auto Email Reply"; // Custom label name 
     const labelExists = await gmail.users.labels.list({
       auth: oAuth2Client,
       userId: USER_EMAIL,
@@ -130,6 +130,7 @@ async function sendMail() {
     const customLabel = labels.find((label) => label.name === labelName);
 
     if (!customLabel) {
+
       // Label doesn't exist, create it
       await gmail.users.labels.create({
         auth: oAuth2Client,
@@ -159,7 +160,7 @@ async function sendMail() {
         const result = await transport.sendMail(emailTemplate);
         console.log("Replied to:", senderEmail, "Result:", result.response);
 
-        // Mark the email as read and add to custom label
+        // Mark the email as read and add to the custom label made by me 
         await gmail.users.messages.modify({
           auth: oAuth2Client,
           userId: USER_EMAIL,
