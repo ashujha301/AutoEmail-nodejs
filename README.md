@@ -1,0 +1,2 @@
+# AutoEmail-nodejs
+This Node.js application provides an automated email reply system using the Gmail API. It allows users to authorize the application to access their Gmail account and automatically send replies to unread messages in their inbox.
