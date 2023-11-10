@@ -67,7 +67,7 @@ app.get("/callback", (req, res) => {
         console.log("Checking for new emails...");
         await sendMail();
         console.log("Task completed, new emails will be checked after 60 seconds.");
-      }, 60000); 
+      }, 60000);                                                                        
 
     } catch (writeError) {
       console.error("Error storing access token", writeError);
@@ -99,7 +99,7 @@ async function sendMail() {
       auth: oAuth2Client,
       userId: USER_EMAIL,
       q: searchQuery,
-    });
+    });                                                         //NOTE:- we can check for others factors also before sending the email replies as if it was in the promotion or primary 
 
     // Check if there are any matching messages
     if (!messages.data.messages || messages.data.messages.length === 0) {
@@ -137,7 +137,7 @@ async function sendMail() {
         userId: USER_EMAIL,
         resource: { name: labelName },
       });
-    }
+    }                                                         //NOTE:- In this code snippet if we got unread messages in our email previously before making any custom label than that messages wont go into the custom label
 
     // Get senders' email from the unread and new emails
     for (const message of messages.data.messages) {
